@@ -49,3 +49,15 @@ class PropertyAttacherTestCase(unittest.TestCase):
 		dummy_object.property = "some string"
 
 		self.assertEqual(dummy_object.property, "some string")
+
+	def test_lazy_attach_property(self):
+		class DummyClass(object):
+			pass
+
+		def lazy_load(self):
+			return "lazy loaded!"
+
+		utilities.reflection.util.PropertyAttacher.attach_property(DummyClass, "property", attribute_value_loader=lazy_load)
+		dummy_object = DummyClass()
+
+		self.assertEqual(dummy_object.property, "lazy loaded!")
