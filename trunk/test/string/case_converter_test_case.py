@@ -11,6 +11,7 @@ class CaseConverterTestCase(unittest.TestCase):
 		self.assertEqual(utilities.string.CaseConverter.convert_to_snake_case("CamelCase"), "camel_case")
 		self.assertEqual(utilities.string.CaseConverter.convert_to_snake_case("notcamelcase"), "notcamelcase")
 		self.assertEqual(utilities.string.CaseConverter.convert_to_snake_case(""), "")
+		self.assertEqual(utilities.string.CaseConverter.convert_to_snake_case("snake_case"), "snake_case")
 
 	def test_convert_to_camel_case(self):
 		self.assertEqual(utilities.string.CaseConverter.convert_to_camel_case("snake_case"), "SnakeCase")
@@ -19,3 +20,4 @@ class CaseConverterTestCase(unittest.TestCase):
 		self.assertEqual(utilities.string.CaseConverter.convert_to_camel_case("__snake_case"), "SnakeCase")
 		self.assertEqual(utilities.string.CaseConverter.convert_to_camel_case("snake"), "Snake")
 		self.assertEqual(utilities.string.CaseConverter.convert_to_camel_case(""), "")
+		self.assertEqual(utilities.string.CaseConverter.convert_to_camel_case("CamelCase"), "Camelcase")
